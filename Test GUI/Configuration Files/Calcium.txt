@@ -1,0 +1,10 @@
+Calcium
+energy (mJ) = 20
+repRate (Hz) = 5Hz
+grating = 600
+wavelength (nm) = 420
+gain = 1750
+pulse_width (nm) = 260
+pulse_delay (nm) = 1500
+motor_position = G  3750
+exposure_time (s) = 60
