@@ -68,6 +68,7 @@ def search():
     data_file = open("data.json", "r")
     dict_sites = json.load(data_file)
     website = website_entry.get()
+
     try:
         site_creds = dict_sites[website]
     except KeyError:
