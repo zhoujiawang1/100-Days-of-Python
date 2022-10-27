@@ -1,6 +1,8 @@
 import requests
 from datetime import datetime
 from twilio.rest import Client
+from twilio.http.http_client import TwilioHttpClient
+import os
 
 API_KEY = "bd1d598397285ba0ac44437390b7ea3c"
 MY_LAT = 45.5031824
@@ -37,7 +39,9 @@ print(time_now)
 
 # verifying condition and sending text if rain
 if weather_id < 700 and time_now == 7:
-    client = Client(ACC_SID, AUTH_TOKEN)
+    proxy_client = TwilioHttpClient()
+    proxy_client.session.proxies = {"https": os.environ['https_proxy']}
+    client = Client(ACC_SID, AUTH_TOKEN, http_client=proxy_client)
     message = client.messages.create(
         body="It's going to rain. Bring an umbrella ☔!",
         from_=TWILIO_PHONE,
