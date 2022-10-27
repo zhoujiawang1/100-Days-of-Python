@@ -42,8 +42,9 @@ while game:
         title=f"{score}/{len(original_states)}Guess the State", prompt="Another State ?").title()
 
     if answer_state == 'Exit':
-        game == False
+        game = False
         break
+
     if answer_state in original_states["state"].values:
         # increases score
         score += 1
